@@ -1,0 +1,98 @@
+GIT COMMANDS USED IN THIS ASSIGNMENT
+====================================
+
+Step 1: Local Repository Setup
+------------------------------
+mkdir project
+    Creates the project folder.
+
+cd project
+    Moves into the project folder.
+
+vi index.html / vi about.html
+    Opens the vi editor to create and write the two HTML files.
+
+git init
+    Initializes an empty Git repository (creates the hidden .git folder) in the project folder.
+
+
+Step 2: Git Workflow Execution
+------------------------------
+git add .
+    Stages all new and modified files in the current folder for the next commit.
+
+git commit -m "add index.html and about.html files"
+    Records the initial state of the project as the first commit.
+
+git diff
+    Shows unstaged changes in the working directory compared to the last commit.
+
+git status
+    Shows which files are modified, staged or untracked, and the current branch.
+
+git commit -m "changes in index.hmtl"
+    Records the edit made to index.html as the second commit.
+
+git checkout -b feature
+    Creates a new branch named "feature" and switches to it in one step.
+
+git commit -m "changes in about.html"
+    Commits the change made to about.html on the feature branch.
+
+git switch master
+    Switches back to the master (main) branch.
+
+git merge feature
+    Merges the feature branch into master (this was a fast-forward merge).
+
+git log --oneline --graph --all
+    Displays the commit history of all branches in a compact graph view.
+
+
+Step 3: .gitignore Implementation
+---------------------------------
+vi .gitignore
+    Creates the .gitignore file listing patterns Git should not track
+    (*.log files and the temp/ folder).
+
+mkdir temp
+    Creates a temp folder to test that the ignore rule works.
+
+cat temp/temp.txt
+    Prints the contents of the file inside temp/ to confirm it exists.
+
+git status
+    Confirms that the .log file and the temp/ folder do not appear as untracked.
+
+git add . && git commit -m "added .gitignore"
+    Stages and commits the .gitignore file.
+
+
+Step 4: Undo Operation using Git
+--------------------------------
+git commit -m "extra change in index.html"
+    Makes an additional commit that will be undone.
+
+git revert HEAD
+    Creates a new commit that reverses the changes of the last commit, keeping the history intact.
+
+git status
+    Shows that the working tree is clean after the revert.
+
+git log
+    Shows the commit history, including the revert commit.
+
+
+Step 5: GitHub Integration
+--------------------------
+git remote add origin https://github.com/akshat-code21/sdp_asg.git
+    Connects the local repository to the public GitHub repository under the name "origin".
+
+git push -u origin master
+    Pushes the master branch to GitHub and sets it as the upstream tracking branch.
+
+git checkout feature
+    Switches to the feature branch so it can be pushed.
+
+git push -u origin feature
+    Pushes the feature branch to GitHub and sets it to track origin/feature.
